@@ -1,7 +1,12 @@
-import { h } from '../src/index';
+import { h } from '../src/createVNode';
+import { createDOMNode } from '../src/createDOMNode';
 
 const el = h('div', {
-  class: 'some-class'
-});
+  class: 'some-class',
+}, [
+  h('span', {}, ['Some text'])
+]);
 
-console.log(el);
+const node = createDOMNode(el);
+
+console.log(node);
