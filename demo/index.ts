@@ -1,5 +1,6 @@
 import { h } from '../src/createVNode';
 import { createDOMNode } from '../src/createDOMNode';
+import { mount } from '../src/mount';
 
 const el = h('div', {
   class: 'some-class',
@@ -7,6 +8,7 @@ const el = h('div', {
   h('span', {}, ['Some text'])
 ]);
 
-const node = createDOMNode(el);
-
-console.log(node);
+mount(
+  createDOMNode(el),
+  document.querySelector('#root')
+);

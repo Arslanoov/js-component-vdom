@@ -1,6 +1,6 @@
 import type { VNode } from './createVNode';
 
-export const createDOMNode = (vNode: VNode | string) => {
+export const createDOMNode = (vNode: VNode | string): Node => {
   if (typeof vNode === 'string') {
     return document.createTextNode(vNode);
   }
