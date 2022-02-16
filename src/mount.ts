@@ -1,4 +1,5 @@
-export const mount = (node: Node, target: HTMLElement) => {
-  target.replaceWith(node);
+export const mount = (node: Node, target: Element) => {
+  target.innerHTML = '';
+  target.appendChild(node);
   return node;
 };
