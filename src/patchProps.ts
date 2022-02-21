@@ -1,4 +1,4 @@
-import {listener} from "./listener";
+import { listener } from "./listener";
 
 export const patchProp = (node, key, value, nextValue) => {
   if (key.startsWith('on')) {
@@ -14,7 +14,7 @@ export const patchProp = (node, key, value, nextValue) => {
     return;
   }
 
-  if (nextValue === false || nextValue === null) {
+  if (nextValue == null || nextValue === false) {
     node.removeAttribute(key);
     return;
   }

@@ -8,13 +8,14 @@ export type VNode = {
   children: Array<VNode | string>
 };
 
-export const h = (tagName: string, props: VNodeProps = {}, children: Array<VNode | string> = []): VNode => ({
-  tagName,
-  props,
-  children,
-});
+export const h = (tagName, props: VNodeProps = {}, ...children: Array<VNode | string>): VNode => {
+  if (typeof tagName === 'function') {
+    return tagName(props, children);
+  }
 
-export const hButton = (props) => {
-  const { text, onclick } = props;
-  return h('button', { onclick }, [ text ]);
-}
+  return {
+    tagName,
+    props,
+    children: children.flat(),
+  };
+};

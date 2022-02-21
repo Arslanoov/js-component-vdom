@@ -22,6 +22,11 @@
   },
   "homepage": "https://github.com/Arslanoov/js-component-vdom#readme",
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
+    "@babel/preset-typescript": "^7.16.7",
+    "babel-loader": "^8.2.3",
     "html-webpack-plugin": "^5.5.0",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.5",
