@@ -1,8 +1,18 @@
 import { h } from '../src/createVNode';
-import { createDOMNode } from '../src/createDOMNode';
 import { patch } from "../src/patch";
 
-const createApp = (state) => {
+const store = {
+  state: {
+    count: 0,
+  },
+  onStateChange: () => {},
+  setState(nextState) {
+    this.state = nextState;
+    this.onStateChange();
+  }
+};
+
+const createApp = ({ state }) => {
   const { count } = state;
   return h('div', { class: 'container', 'data-count': count }, [
     h('h1', {}, ['Hello, Virtual DOM']),
@@ -10,13 +20,17 @@ const createApp = (state) => {
   ]);
 };
 
-const state = { count: 0 };
 let app = patch(
-  createApp(state),
+  createApp(store),
   document.getElementById('app')
 );
 
+store.onStateChange = () => {
+  app = patch(createApp(store), app);
+};
+
 setInterval(() => {
-  state.count++;
-  app = patch(createApp(state), app);
+  store.setState({
+    count: store.state.count + 1
+  });
 }, 1000);
