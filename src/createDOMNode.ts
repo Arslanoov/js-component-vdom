@@ -1,4 +1,5 @@
 import type { VNode } from './createVNode';
+import { patchProps } from './patchProps';
 
 export const createDOMNode = (vNode: VNode | string): Node => {
   if (typeof vNode === 'string') {
@@ -8,9 +9,7 @@ export const createDOMNode = (vNode: VNode | string): Node => {
   const { tagName, props, children } = vNode;
 
   const node = document.createElement(tagName);
-  Object.entries(props).forEach(([prop, value]) => {
-    node.setAttribute(prop, value);
-  });
+  patchProps(node, {}, props);
 
   // TODO: Remove recursion, implement with Stack
   children.forEach((child) => node.appendChild(createDOMNode(child)));
