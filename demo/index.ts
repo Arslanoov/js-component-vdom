@@ -1,4 +1,4 @@
-import { h } from '../src/createVNode';
+import {h, hButton} from '../src/createVNode';
 import { patch } from "../src/patch";
 
 const store = {
@@ -17,6 +17,16 @@ const createApp = ({ state }) => {
   return h('div', { class: 'container', 'data-count': count }, [
     h('h1', {}, ['Hello, Virtual DOM']),
     h('div', {}, [`Count: ${count}`]),
+    h("div", {}, [
+      hButton({
+        text: '-1',
+        onclick: () => store.setState({ count: store.state.count - 1 })
+      }),
+      hButton({
+        text: '+1',
+        onclick: () => store.setState({ count: store.state.count + 1 })
+      })
+    ])
   ]);
 };
 

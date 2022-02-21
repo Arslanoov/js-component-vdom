@@ -1,4 +1,19 @@
+import {listener} from "./listener";
+
 export const patchProp = (node, key, value, nextValue) => {
+  if (key.startsWith('on')) {
+    const event = key.slice(2);
+    node[event] = nextValue;
+
+    if (!nextValue) {
+      node.removeEventListener(event, listener);
+    } else if (!value) {
+      node.addEventListener(event, listener);
+    }
+
+    return;
+  }
+
   if (nextValue === false || nextValue === null) {
     node.removeAttribute(key);
     return;
