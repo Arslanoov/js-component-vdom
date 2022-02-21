@@ -2,13 +2,11 @@
   "name": "js-component-vdom",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
+  "main": "./build/index.js",
+  "types": "./build/types/index.d.ts",
   "scripts": {
-    "serve": "npx webpack serve",
-    "build": "webpack"
+    "build": "npx webpack --config webpack.config.js && tsc src/*.ts",
+    "demo": "npx webpack serve --config webpack.config.demo.js"
   },
   "repository": {
     "type": "git",
