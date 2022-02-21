@@ -1,7 +1,6 @@
 import { h } from '../src/createVNode';
 import { createDOMNode } from '../src/createDOMNode';
-import { mount } from '../src/mount';
-import { patchNode } from '../src/patchNode';
+import { patch } from "../src/patch";
 
 const createApp = (state) => {
   const { count } = state;
@@ -12,17 +11,12 @@ const createApp = (state) => {
 };
 
 const state = { count: 0 };
-let vApp = createApp(state);
-let app = mount(
-  createDOMNode(vApp),
+let app = patch(
+  createApp(state),
   document.getElementById('app')
 );
 
 setInterval(() => {
   state.count++;
-
-  const vNextApp = createApp(state);
-
-  app = patchNode(app, vApp, vNextApp);
-  vApp = vNextApp;
+  app = patch(createApp(state), app);
 }, 1000);
