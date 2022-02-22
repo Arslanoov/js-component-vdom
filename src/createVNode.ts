@@ -9,13 +9,13 @@ export type VNode = {
 };
 
 export const h = (tagName, props: VNodeProps = {}, ...children: Array<VNode | string>): VNode => {
-  if (typeof tagName === 'function') {
-    return tagName(props, children);
+  if (typeof tagName === "function") {
+    return tagName(props, children)
   }
 
   return {
     tagName,
     props,
     children: children.flat(),
-  };
-};
+  }
+}

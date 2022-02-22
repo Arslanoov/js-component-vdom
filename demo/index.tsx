@@ -1,7 +1,7 @@
-import { h as createVNode } from '../src/createVNode';
-import { patch } from "../src/patch";
+import { h as createVNode } from "../src/createVNode"
+import { patch } from "../src/patch"
 
-const h = createVNode;
+const h = createVNode
 
 const store = {
   state: {
@@ -9,15 +9,15 @@ const store = {
   },
   onStateChange: () => {},
   setState(nextState) {
-    this.state = nextState;
-    this.onStateChange();
+    this.state = nextState
+    this.onStateChange()
   }
-};
+}
 
 const createApp = (store) => {
-  const { count } = store.state;
-  const decrement = () => store.setState({ count: store.state.count - 1 });
-  const increment = () => store.setState({ count: store.state.count + 1 });
+  const { count } = store.state
+  const decrement = () => store.setState({ count: store.state.count - 1 })
+  const increment = () => store.setState({ count: store.state.count + 1 })
 
   return (
     <div {...{class: "container", "data-count": String(count)}}>
@@ -26,16 +26,16 @@ const createApp = (store) => {
       <button onclick={increment}>+1</button>
     </div>
   )
-};
+}
 
 let app = patch(
   createApp(store),
-  document.getElementById('app')
-);
+  document.getElementById("app")
+)
 
 store.onStateChange = () => {
-  app = patch(createApp(store), app);
-};
+  app = patch(createApp(store), app)
+}
 
 /* setInterval(() => {
   store.setState({

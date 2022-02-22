@@ -1,3 +1,3 @@
 export function listener(event) {
-  return this[event.type](event);
+  return this[event.type](event)
 }

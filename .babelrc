@@ -1,5 +1,14 @@
 {
-  "presets": ["@babel/preset-typescript"],
+  "presets": [
+    ["@babel/env", {
+      "targets": {
+        "browsers": [
+          "ie >= 11"
+        ]
+      }
+    }],
+    "@babel/preset-typescript"
+  ],
   "plugins": [
     "@babel/plugin-syntax-jsx",
     ["@babel/plugin-transform-react-jsx", {

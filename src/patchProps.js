@@ -14,7 +14,7 @@ exports.__esModule = true;
 exports.patchProps = exports.patchProp = void 0;
 var listener_1 = require("./listener");
 var patchProp = function (node, key, value, nextValue) {
-    if (key.startsWith('on')) {
+    if (key.startsWith("on")) {
         var event_1 = key.slice(2);
         node[event_1] = nextValue;
         if (!nextValue) {

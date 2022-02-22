@@ -3,7 +3,7 @@ exports.__esModule = true;
 exports.createDOMNode = void 0;
 var patchProps_1 = require("./patchProps");
 var createDOMNode = function (vNode) {
-    if (typeof vNode === 'string') {
+    if (typeof vNode === "string") {
         return document.createTextNode(vNode);
     }
     var tagName = vNode.tagName, props = vNode.props, children = vNode.children;

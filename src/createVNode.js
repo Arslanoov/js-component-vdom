@@ -7,7 +7,7 @@ var h = function (tagName, props) {
     for (var _i = 2; _i < arguments.length; _i++) {
         children[_i - 2] = arguments[_i];
     }
-    if (typeof tagName === 'function') {
+    if (typeof tagName === "function") {
         return tagName(props, children);
     }
     return {

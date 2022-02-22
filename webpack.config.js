@@ -1,16 +1,16 @@
-const path = require('path');
+const path = require("path")
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
   entry: path.resolve(__dirname, "src", "index.ts"),
   target: "es5",
 
   output: {
-    filename: "bundle.js",
+    filename: "index.js",
     path: path.resolve(__dirname, "build"),
-    chunkFormat: 'module',
-    library: "library",
-    libraryTarget: 'amd'
+    chunkFormat: "module",
+    library: "js-component-vdom",
+    libraryTarget: "amd"
   },
   resolve: {
     extensions: [".ts", ".js"]
@@ -24,4 +24,4 @@ module.exports = {
       },
     ]
   }
-};
+}
