@@ -4,28 +4,25 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
-    node: true
+    node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
   ],
-  plugins: ["@typescript-eslint", "prettier"],
+  plugins: ['@typescript-eslint', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: 'module',
   },
   rules: {
-    semi: ["error", "never"],
-    quotes: ["error", "double", {
-      "allowTemplateLiterals": true
-    }],
+    'prettier/prettier': 2,
 
-    "@typescript-eslint/no-var-requires": 0,
-    "@typescript-eslint/no-empty-function": 0
-  }
-}
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-empty-function': 0,
+  },
+};
