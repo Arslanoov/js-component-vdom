@@ -1,7 +1,7 @@
 {
   "name": "js-component-vdom",
   "version": "1.0.1",
-  "description": "",
+  "description": "Virtual DOM implementation library",
   "main": "./build/index.js",
   "types": "./build/types/index.d.ts",
   "scripts": {
